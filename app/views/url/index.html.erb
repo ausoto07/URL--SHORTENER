@@ -1,0 +1,10 @@
+<h1>Url Shortener</h1>
+
+<%= form_tag '/url_create' do%>
+  <%= text_field(:url, :name)%>
+  <%= submit_tag 'submit' %>
+<% end %>
+
+<% @urls.each do |url| %>
+  <%= url.id %> - <%= url.name %>, <%= link_to url.short, short_path(short: url.short) %> </br>
+<% end %>
